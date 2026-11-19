@@ -1,0 +1,40 @@
+{
+  "app_name": "ProFix - Slow PC Doctor",
+  "version": "1.0.0",
+  "trust_banner": "Safe Mode: Files under 24h, forced process kills, and Windows Registry cleanup are never performed.",
+  "scan_steps": [
+    "Checking C: drive storage headroom & top folders...",
+    "Inspecting non-Microsoft startup & background apps...",
+    "Sampling 3-second CPU load, RAM usage & system uptime...",
+    "Scanning safe temp folders (skipping files under 24h)...",
+    "Checking Windows Update & pending restart flags...",
+    "Checking Recycle Bin size & DNS response time...",
+    "Checking safe Windows performance settings...",
+    "Reading hardware profile, RAM slots & disk SMART health..."
+  ],
+  "verdicts": {
+    "Excellent": {
+      "headline": "Your PC is in great shape",
+      "subtitle": "No major slowdowns detected. Everything is running smoothly."
+    },
+    "Good": {
+      "headline": "Running smoothly with minor clutter",
+      "subtitle": "A quick safe cleanup can free space and trim startup lag."
+    },
+    "Fair": {
+      "headline": "Noticeable slowdown detected",
+      "subtitle": "Clearing safe junk and heavy startup items will speed things up."
+    },
+    "Poor": {
+      "headline": "Heavy bottlenecks are slowing this PC",
+      "subtitle": "Fix the safe items below first, then review hardware or restart alerts."
+    }
+  },
+  "cta": {
+    "fix_with_space": "Fix {count} Safe Items \u2022 Free {gb:.1f} GB (+{pts} pts)",
+    "fix_no_space": "Apply {count} Safe Fixes (+{pts} pts)",
+    "none_selected": "Select items below to fix",
+    "healthy": "Nothing to Fix \u2014 PC Is Healthy"
+  },
+  "non_admin_notice": "Standard Mode: Run as Administrator for full Disk SMART, battery wear, and RAM slot detection."
+}

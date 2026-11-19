@@ -1,0 +1,45 @@
+{
+  "fonts": {
+    "family": "Segoe UI",
+    "hero_score": 32,
+    "section_title": 18,
+    "row_title": 13,
+    "body": 12,
+    "badge": 10
+  },
+  "layout": {
+    "default_width": 1080,
+    "default_height": 700,
+    "min_width": 940,
+    "min_height": 620,
+    "nav_width": 215,
+    "card_radius": 12,
+    "button_radius": 8
+  },
+  "dark": {
+    "bg_canvas": "#0F1218",
+    "bg_surface": "#171C26",
+    "bg_elevated": "#1F2633",
+    "border_subtle": "#283142",
+    "text_primary": "#F1F5F9",
+    "text_muted": "#94A3B8",
+    "accent_primary": "#3B82F6",
+    "status_excellent": "#10B981",
+    "status_good": "#06B6D4",
+    "status_fair": "#F59E0B",
+    "status_poor": "#F43F5E"
+  },
+  "light": {
+    "bg_canvas": "#F4F6F9",
+    "bg_surface": "#FFFFFF",
+    "bg_elevated": "#EEF2F7",
+    "border_subtle": "#DCE3EC",
+    "text_primary": "#0F172A",
+    "text_muted": "#475569",
+    "accent_primary": "#2563EB",
+    "status_excellent": "#059669",
+    "status_good": "#0891B2",
+    "status_fair": "#D97706",
+    "status_poor": "#E11D48"
+  }
+}

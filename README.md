@@ -262,6 +262,17 @@ The script version needs no build — it is `ProFix.ps1` as-is.
 | `LICENSE` | MIT License |
 | `.gitignore` | Build outputs, the .exe and logs are not committed |
 
+## Python version (Syed's build)
+
+There is a second implementation in [`python/ProFix_v1.0.0`](python/ProFix_v1.0.0)
+(Python + CustomTkinter, same 7 checks and 75/25 Health Score, plus the
+background-app manager, safe tweaks and HTML report already built in).
+Build its Windows `.exe` from the Actions tab → "Build ProFix Python exe
+(Windows)" → Run workflow, or run `build_release.bat` on your own PC.
+Known gaps vs the C# version: its junk scan has no browser caches yet,
+and it makes no real Windows System Restore Point (Undo snapshot only).
+See [`python/README.md`](python/README.md).
+
 ## What v1 leaves out (on purpose)
 
 - No Prefetch cleaning (ProClean had 30+ day old Prefetch as an
