@@ -1,0 +1,11 @@
+# ProFix build outputs and logs - never committed.
+# The .exe is a GitHub Release asset only, never committed to git.
+*.exe
+*.pdb
+*.dll
+bin/
+obj/
+publish/
+ProFix-Log-*.txt
+*.user
+.vs/
