@@ -1,0 +1,50 @@
+name: Build ProFix Python exe (Windows)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'python/**'
+      - '.github/workflows/build-python-exe.yml'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        working-directory: python/ProFix_v1.0.0
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt pyinstaller
+
+      - name: Run unit tests
+        working-directory: python/ProFix_v1.0.0
+        run: python tests/test_scorer.py
+
+      - name: Build exe with PyInstaller
+        working-directory: python/ProFix_v1.0.0
+        run: |
+          pyinstaller --noconfirm --clean --onefile --windowed --noupx --name "ProFix_v1.0.0" --add-data "config;config" --collect-data customtkinter --exclude-module matplotlib --exclude-module numpy --exclude-module pandas --exclude-module scipy --exclude-module PySide6 --exclude-module PyQt6 --exclude-module unittest --exclude-module pydoc --exclude-module doctest main.py
+
+      - name: SHA-256 checksum
+        working-directory: python/ProFix_v1.0.0/dist
+        run: |
+          certutil -hashfile ProFix_v1.0.0.exe SHA256 > SHA256SUMS.txt
+          type SHA256SUMS.txt
+
+      - name: Upload exe artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ProFix_v1.0.0-windows
+          path: |
+            python/ProFix_v1.0.0/dist/ProFix_v1.0.0.exe
+            python/ProFix_v1.0.0/dist/SHA256SUMS.txt
+          if-no-files-found: error
