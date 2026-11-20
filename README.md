@@ -28,6 +28,14 @@ single-file PowerShell script. Both do exactly the same thing.
 
 Real test on Syed's own PC, 19 Nov 2026 — Health Score 70 (Fair), Junk 33,315 files / 4.75 GB reclaimable.
 
+![ProFix Python build on Syed's own PC — Health Score 90 (Excellent)](screenshots/profix-python-90-excellent.png)
+
+Real test of the Python build on Syed's own PC, 20 Nov 2026 — Health Score **90 (Excellent)** (System Health 65/75 + Hardware Readiness 25/25), Intel Core i5-10210U, 16 GB RAM, NVMe drive. Fix worked (84 → 85), and after elevating to administrator the NVMe drive was detected and the score rose to 90.
+
+![ProFix Python build — Undo Last Fix ready](screenshots/profix-python-undo-ready.png)
+
+Restore & Logs tab after the Fix — "Restore snapshot ready: C:\Users\Admin\AppData\Local\ProFix\ProFix_Restore.json", with Undo Last Fix + Export TXT/HTML Report buttons.
+
 ## How to run (on your Windows 10/11 PC)
 
 **The .exe (easiest):**
@@ -272,6 +280,30 @@ Build its Windows `.exe` from the Actions tab → "Build ProFix Python exe
 Known gaps vs the C# version: its junk scan has no browser caches yet,
 and it makes no real Windows System Restore Point (Undo snapshot only).
 See [`python/README.md`](python/README.md).
+
+### Windows test — Python build (20 Nov 2026)
+
+Tested by Syed on his own PC (Intel Core i5-10210U, 16 GB RAM, NVMe,
+Windows 11). Exe: `ProFix_v1.0.0.exe`, SHA-256
+`600bc8bdc82a17061fca8ce86c874f980bfa8a824512a9e5226aab36a6f9bbf5`
+(built by GitHub Actions, run #2).
+
+- **Health Score 90 (Excellent)** — System Health 65/75 + Hardware
+  Readiness 25/25. First run in Standard mode scored 84 → 85 after
+  1-Click Fix; after elevating (Run as administrator) the NVMe drive
+  was detected and the score rose to 90.
+- **All 7 checks ran clean:** C: 24.02 GB free (10.4%, 10/20 pts — the
+  only weak point), Junk 0.03 GB cleanable (8/8), Startup 0
+  non-Microsoft apps (12/12), Recycle Bin 0.0 GB + DNS 1 ms (4/4),
+  RAM 34.0% of 16 GB (15/15), CPU 7.4% (10/10), no pending restart (6/6).
+- **Fix + Undo verified:** 1-Click Fix ran and the restore snapshot
+  `ProFix_Restore.json` was created — Undo Last Fix was ready in
+  Restore & Logs.
+- **Close Gently verified:** closing a tray app with no visible window
+  (copilotapphost) showed a polite "No visible window found" message
+  instead of force-killing it.
+- **Known limit confirmed:** the junk scan found only 0.03 GB — it still
+  has no browser caches (see gaps above).
 
 ## What v1 leaves out (on purpose)
 
